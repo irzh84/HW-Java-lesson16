@@ -3,6 +3,27 @@ import org.junit.jupiter.api.Test;
 
 class GameTest {
     @Test
+    public void shouldAdd() {
+        Player player = new Player(1, "Anna", 60);
+
+        Game game = new Game();
+
+        Assertions.assertEquals(player, game.register(player));
+    }
+
+    @Test
+    public void shouldFindByName() {
+        Player player1 = new Player(1, "Anna", 60);
+        Player player2 = new Player(2, "Sveta", 160);
+
+        Game game = new Game();
+        game.register(player1);
+        game.register(player2);
+
+        Assertions.assertEquals(player2, game.findByName("Sveta"));
+    }
+
+    @Test
     public void player2NotRegister() {
         Player player1 = new Player(1, "Anna", 60);
 

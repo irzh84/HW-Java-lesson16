@@ -1,14 +1,16 @@
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Game {
-    private ArrayList<Player> playersList = new ArrayList<>();
+    private HashMap<Integer, Player> playersList = new HashMap<>();
 
-    public void register(Player player) {
-        playersList.add(player);
+    public Player register(Player player) {
+        playersList.put(player.getId(), player);
+        return player;
     }
 
     public Player findByName(String name) {
-        for (Player player : playersList) {
+        for (Integer key : playersList.keySet()) {
+            Player player = playersList.get(key);
             if (player.getName().equals(name)) {
                 return player;
             }
@@ -33,32 +35,4 @@ public class Game {
             return 0;
         }
     }
-
-    /* вебинар
-    public int round(String playerName1, String playerName2) {
-        Player player1 = null;
-        Player player2 = null;
-        for (Player player : playersList) {
-            if (player.getName().equals(playerName1)) {
-                player1 = player;
-            }
-            if (player.getName().equals(playerName2)) {
-                player2 = player;
-            }
-        }
-        if (player1 == null) {
-            throw new NotRegisteredException("Игрок " + playerName1 + " не зарегистрирован!");
-        }
-        if (player2 == null) {
-            throw new NotRegisteredException("Игрок " + playerName2 + " не зарегистрирован!");
-        }
-        if (player1.getStrength() > player2.getStrength()) {
-            return 1;
-        } else if (player1.getStrength() < player2.getStrength()) {
-            return 2;
-        } else {
-            return 0;
-        }
-    }
-     */
 }
