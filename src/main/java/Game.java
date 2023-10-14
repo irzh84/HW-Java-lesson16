@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.HashSet;
 
 public class Game {
     private ArrayList<Player> playersList = new ArrayList<>();
@@ -36,7 +35,6 @@ public class Game {
     }
 
     /* вебинар
-
     public int round(String playerName1, String playerName2) {
         Player player1 = null;
         Player player2 = null;
